@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_pricelist_view_sohome_markup" model="ir.ui.view">
+        <field name="name">product.pricelist.form.sohome.markup</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='item_ids']/tree//field[@name='fixed_price']" position="after">
+                <field name="x_sohome_markup" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+                <field name="x_sohome_over_percent" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+                <field name="x_sohome_adjusted_fixed_price" readonly="1" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']/tree//field[@name='price']" position="after">
+                <field name="x_sohome_markup" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+                <field name="x_sohome_over_percent" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_form_view_sohome_markup" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form.sohome.markup</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fixed_price']" position="after">
+                <field name="x_sohome_markup" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+                <field name="x_sohome_over_percent" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+                <field name="x_sohome_adjusted_fixed_price" readonly="1" groups="sohome_pricelist_markup.group_sohome_pricelist_markup_manager"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
