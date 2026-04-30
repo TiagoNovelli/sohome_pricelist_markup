@@ -5,9 +5,11 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='pricelist_id']" position="after">
-                <field name="x_sohome_markup" groups="sohome_pricelist_markup.group_sohome_sale_markup"/>
-                <field name="x_sohome_over_percent" groups="sohome_pricelist_markup.group_sohome_sale_over"/>
+            <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                <group>
+                    <field name="x_sohome_markup" groups="sohome_pricelist_markup.group_sohome_sale_markup"/>
+                    <field name="x_sohome_over_percent" groups="sohome_pricelist_markup.group_sohome_sale_over"/>
+                </group>
             </xpath>
         </field>
     </record>
