@@ -1,3 +1,0 @@
-pricelist_id/id,applied_on,product_id/id,compute_price,fixed_price,x_sohome_markup,x_sohome_over_percent,min_quantity
-product.list0,0_product_variant,product.product_product_4,fixed,1000.00,1.50,5.26,1
-product.list0,0_product_variant,product.product_product_5,fixed,1250.00,1.50,5.26,1

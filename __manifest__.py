@@ -1,14 +1,14 @@
 {
     "name": "Sohome Pricelist Markup",
-    "summary": "Markup and Over for complete product variant combinations",
-    "version": "16.0.1.0.0",
+    "summary": "Markup and Over applied from sale orders to order lines",
+    "version": "16.0.2.0.0",
     "category": "Sales",
     "author": "Sohome",
     "license": "LGPL-3",
-    "depends": ["product"],
+    "depends": ["sale"],
     "data": [
         "security/security.xml",
-        "views/product_pricelist_views.xml",
+        "views/sale_order_views.xml",
     ],
     "installable": True,
     "application": False,

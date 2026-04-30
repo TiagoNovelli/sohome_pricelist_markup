@@ -1,58 +1,47 @@
 # Sohome Pricelist Markup
 
-Adiciona dois campos em cada regra de lista de precos do Odoo:
+Modulo Odoo 16 para aplicar `Markup` e `Over (%)` no pedido de venda.
 
-- `Markup`: multiplier applied to the rule price.
-- `Over (%)`: percentage applied after markup. Default: `5.26`.
+## Como funciona
 
-The final computed price is:
+A lista de precos continua definindo o preco base de cada variante completa do produto.
+
+No pedido de venda aparecem os campos:
+
+- `Markup`
+- `Over (%)`
+
+Ao salvar o pedido, o modulo aplica esses fatores em cada linha:
 
 ```text
-rule price * markup * (1 + over_percent / 100)
+preco unitario base da linha * markup * (1 + over / 100)
 ```
 
-Example:
+Exemplo:
 
 ```text
-fixed price = 1000.00
+preco base da linha = 1000.00
 markup = 1.5
-over % = 5.26
+over = 5.26
 
-final price = 1000.00 * 1.5 * 1.0526 = 1578.90
+preco unitario final = 1000.00 * 1.5 * 1.0526 = 1578.90
 ```
 
-## Variant combinations
+O modulo guarda internamente o preco base original da linha em `x_sohome_base_price`, para evitar multiplicar o preco repetidas vezes quando o pedido for salvo novamente.
 
-Use one pricelist rule per complete product variant (`product.product`), not only per product template.
+## Permissoes
 
-Example:
+Existem permissoes separadas:
 
-```text
-Sofa 3m + Fabric A
-Sofa 4m + Fabric A
-Sofa 3m + Fabric B
-Sofa 4m + Fabric B
-```
+- `Sohome - Editar Markup no pedido`
+- `Sohome - Editar Over no pedido`
 
-Each combination can have its own fixed price, markup, and additional percentage.
+Quem nao tiver o grupo de `Markup` nao ve nem altera o campo `Markup`.
 
-## Security
+Quem nao tiver o grupo de `Over` nao ve nem altera o campo `Over (%)`.
 
-Only users in the group `Sohome - Markup e Over de listas de precos` can see or change `Markup` and `Over (%)`.
+As permissoes tambem bloqueiam alteracao por importacao/API.
 
-Other users keep using the final computed prices, but the fields are hidden and protected against manual edits/imports.
+## Localizacao brasileira
 
-## Import
-
-Use the fields:
-
-```text
-Pricelist
-Applied On
-Product Variant
-Fixed Price
-Markup
-Over (%)
-```
-
-See `demo/pricelist_import_example.csv` for a model import file.
+O modulo foi pensado para uso com localizacao brasileira, mas nao substitui os addons fiscais. A localizacao BR continua vindo dos addons OCA instalados em `extra-addons`, como `l10n-brazil`.

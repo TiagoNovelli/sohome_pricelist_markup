@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="group_sohome_pricelist_markup_manager" model="res.groups">
-        <field name="name">Sohome - Markup e Over de listas de precos</field>
+    <record id="group_sohome_sale_markup" model="res.groups">
+        <field name="name">Sohome - Editar Markup no pedido</field>
+        <field name="category_id" ref="base.module_category_sales_sales"/>
+    </record>
+
+    <record id="group_sohome_sale_over" model="res.groups">
+        <field name="name">Sohome - Editar Over no pedido</field>
         <field name="category_id" ref="base.module_category_sales_sales"/>
     </record>
 </odoo>
