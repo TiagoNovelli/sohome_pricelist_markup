@@ -1,7 +1,7 @@
 {
     "name": "Sohome Pricelist Markup",
     "summary": "Markup and Over applied from sale orders to order lines",
-    "version": "16.0.2.0.0",
+    "version": "18.0.1.0.0",
     "category": "Sales",
     "author": "Sohome",
     "license": "LGPL-3",
